@@ -51,16 +51,18 @@ class userController extends BaseController{
     public function ShowDetail()
     {
     	$users = new User;
+    	//$user = 1234;
     	
     	$users = User::all();
 
-    	echo Form::open(array('action'=>'UserController@newUser'));
+    	//echo Form::open(array('action'=>'UserController@newUser'));
 
-    	foreach ($users as $user) {
-    		echo $user->username." || ".$user->Fname." || ".$user->Lname." || <br>";
-    	}
-    	echo Form::submit('Create New User');
-    	echo Form::close();
+    	//foreach ($users as $user) {
+    		//echo $user->username." || ".$user->Fname." || ".$user->Lname." || <br>";
+    	//}
+    	//echo Form::submit('Create New User');
+    	//echo Form::close();
+    	return View::make('ShowDetail')->with('users',$users);
     }
 
 }
