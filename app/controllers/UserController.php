@@ -1,5 +1,7 @@
 <?php
 class userController extends BaseController{
+
+    
     public function newUser()
     {
  
@@ -29,19 +31,10 @@ class userController extends BaseController{
     	$users->Fname = Input::get('fname');
     	$users->Lname = Input::get('lname');
 
-    	$users->save();
-
-    	//$users = User::where('id','=',5)->get();
-    	
-    	
+    	$users->save();	
 
     	echo Form::open(array('action'=>'UserController@ShowDetail'));
-    	//echo 'Your Name : '.$users->name.' Your Password : '.$users->pass.'\n';
-    	//var_dump($users->name);
-    	//echo $users;
-    	//foreach ($users as $user) {
-    		//echo $user->name;
-    	//}
+  
     	echo "Success!!<br>";
     	echo Form::submit('OK!');
 
@@ -51,20 +44,10 @@ class userController extends BaseController{
     public function ShowDetail()
     {
     	$users = new User;
-    	//$user = 1234;
-    	
     	$users = User::all();
-
-    	//echo Form::open(array('action'=>'UserController@newUser'));
-
-    	//foreach ($users as $user) {
-    		//echo $user->username." || ".$user->Fname." || ".$user->Lname." || <br>";
-    	//}
-    	//echo Form::submit('Create New User');
-    	//echo Form::close();
-    	return View::make('ShowDetail')->with('users',$users);
+    	return View::make('layouts.master')->with('users',$users);
+    
     }
-
 }
 ?>
 

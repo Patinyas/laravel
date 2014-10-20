@@ -18,3 +18,9 @@ Route::post('newuser','UserController@newUser');
 #Route::post('Success','DetailRegister@showDetail');
 Route::post('success','UserController@Submit');
 Route::post('/','UserController@ShowDetail');
+
+
+Route::get('test', function()
+{
+	return View::make('layouts.master');
+});
